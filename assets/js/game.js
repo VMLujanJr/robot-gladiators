@@ -14,7 +14,7 @@ console.log(enemyNames[2]);
 
 var fight = function(enemyName) {
     /* repeat and execute as long as the enemy-robot is alive */
-    while(enemyHealth > 0) {
+    while(playerHealth > 0 && enemyHealth > 0) {
 
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.")
         
@@ -26,6 +26,7 @@ var fight = function(enemyName) {
             /* check enemy health */
             if (enemyHealth <= 0) {
                 window.alert(enemyName + " has died!");
+                break;
             } else {
                 window.alert(enemyName + " still has " + enemyHealth + " health left.");
             }
@@ -37,6 +38,7 @@ var fight = function(enemyName) {
             /* check player health */
             if (playerHealth <= 0) {
                 window.alert(playerName + " has died!");
+                break;
             } else {
                 window.alert(playerName + " still has " + playerHealth + " health left.")
             }  
@@ -49,8 +51,9 @@ var fight = function(enemyName) {
             if (confirmSkip) {
                 window.alert(playerName + " has decided to skip this fight!");
                 /* subtract money */
-                playerMoney = playerMoney - 2;
-                console.log("$2 monies was shaved off the top! " + playerName + " now has $" + playerMoney + " monies.");
+                playerMoney = playerMoney - 10;
+                console.log("playerMoney", playerMoney);
+                console.log("$10 monies was shaved off the top! " + playerName + " now has $" + playerMoney + " monies.");
             } else {
                 fight();
             }
