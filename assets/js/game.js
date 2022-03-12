@@ -1,4 +1,4 @@
-debugger;
+
 var fightOrSkip = function() {
   //ask player if they'd like to fight or skip
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
@@ -145,20 +145,19 @@ var endGame = function() {
 
 var shop = function() {
   // ask the player what they would like to do.
-  var shopOptionPrompt = window.prompt ("Would you like to REFILL your health. UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice.");
-  
+  var shopOptionPrompt = window.prompt ("Enter 1 for Refill, 2 for Upgrade, or 3 to Leave.");
+
+  shopOptionPrompt = parseInt(shopOptionPrompt);
+
   // use switch to carry out action
   switch (shopOptionPrompt) {
-    case "REFILL": //upper case
-    case "refill": //lower case
+    case 1: //lower case
       playerInfo.refillHealth();
       break;
-    case "UPGRADE": //upper case
-    case "upgrade": //lower case
+    case 2: //lower case
       playerInfo.upgradeAttack();
       break;
-    case "LEAVE": //upper case
-    case "leave": //lower case
+    case 3: //lower case
       window.alert("Leaving the store.");
 
       // do nothing, so function will end
